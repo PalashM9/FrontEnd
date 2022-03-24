@@ -21,9 +21,13 @@ function getReceiptTime() {
 	return dateTime;
 }
 
+function addReceipt() {
+	$('.receipt').fadeIn();
+}
+
 function addNewReceipt() {
 	const receiptTime = getReceiptTime();
-	receiptParent = `<div class="receipt"><header class="receipt_header"><p class="receipt_title"> itemis receipt  </p><p class="receipt_date"> ${receiptTime}</p></header><dl class="receipt_list"></dl></div>`;
+	let receiptParent = `<div class="receipt"><header class="receipt_header"><p class="receipt_title"> itemis receipt  </p><p class="receipt_date"> ${receiptTime}</p></header><dl class="receipt_list"></dl></div>`;
 	$(receiptParent).appendTo('.receipt-container');
 }
 
@@ -42,6 +46,7 @@ function performTaxComputationForInput(productValue) {
 
 function getTaxedDetails(calculatedTaxedPrice, extractItems) {
 	totalPrice = parseFloat(totalPrice) + parseFloat(calculatedTaxedPrice);
+    addItemsListForReceipt(calculatedTaxedPrice, extractItems);
 }
 
 function roundOffFloatValues(initialValue) {
@@ -89,4 +94,16 @@ function calculateSalesTax(productPrice, category) {
 
 	totalSalesTax = totalSalesTax + computedSalesTax;
 	return taxedPrice;
+}
+
+function addItemsListForReceipt(calculatedTaxedPrice, extractItems) {
+	receiptRow = `<div class="receipt_list-row"><dt class="receipt_item product-item">${extractItems} <dd class="receipt_cost">${calculatedTaxedPrice}</dd></div>`;
+	$(receiptRow).appendTo($('.receipt_list'));
+}
+
+function addTotalForReceipt(totalSalesTax, totalPrice) {
+	salesTaxRow = ` <div class="receipt_list-row receipt__list-row--total"><dt class="receipt_item">Sales Tax :</dt><dd class="receipt_cost">${totalSalesTax}</dd></div>`;
+	totalRow = ` <div class="receipt_list-row"><dt class="receipt_item">Total :</dt><dd class="receipt_cost">${totalPrice}</dd></div>`;
+	$(salesTaxRow).appendTo($('.receipt_list'));
+	$(totalRow).appendTo($('.receipt_list'));
 }

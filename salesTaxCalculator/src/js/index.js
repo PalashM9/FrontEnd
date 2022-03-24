@@ -17,6 +17,9 @@ function generateReceiptOnClick() {
 			} else {
 				performTaxComputationForInput(productInputValue);
 			}
+            addTotalForReceipt(roundOffFloatValues(totalSalesTax), roundOffFloatValues(totalPrice));
+            addReceipt();
+            resetValues();
 		} else {
 			showError();
 		}
@@ -39,6 +42,11 @@ function getMultiLineInput() {
 		}
 	}
 	return productValues;
+}
+
+function resetValues() {
+	totalPrice = 0.0;
+	totalSalesTax = 0.0;
 }
 
 $(document).ready(() => {
