@@ -7,6 +7,13 @@
       <title>Sales Tax Calculator</title>
    </head>
    <body>
+      <div class="alert alert-danger alert-dismissible fade in">
+         <div class="warning-message">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Irrelevant Input!</strong> 
+            <p>Please enter input as per the regulations.</p>
+         </div>
+      </div>
       <div class="container">
          <textarea class="input-product"></textarea>
          <input type="button" class="check-tax"/>
@@ -15,7 +22,9 @@
    </body>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
+   <script src="src/js/error_handling.js"></script>
+   <script src="src/js/index.js"></script>
    <script src="src/js/sales_tax.js"></script>
    <link rel="stylesheet" type="text/css" href="src/css/sales_tax.css"/>
 </html>
