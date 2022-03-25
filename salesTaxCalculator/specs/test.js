@@ -196,3 +196,4 @@ describe("If Input is copied & pasted including special characters -> Check if t
     resetValues();
   });
 });
+

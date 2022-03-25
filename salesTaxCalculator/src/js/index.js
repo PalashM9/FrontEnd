@@ -6,6 +6,8 @@ function generateReceiptOnClick() {
 	$(".check-tax").click(() => {
 		let isGoodInput = checkErrors();
 		if (isGoodInput) {
+			hideExamples();
+			resetReceipt();
 			multipleInput = checkIfMultipleInputs();
 			var productInputValue = getProductInput();
 			addNewReceipt();
@@ -49,6 +51,28 @@ function resetValues() {
 	totalSalesTax = 0.0;
 }
 
+function resetReceipt(){
+	$('div.receipt').remove();
+}
+
+function hideExamples(){
+	$('.examples').fadeOut(10);
+}
+
+function addExamplesOnClick() {
+	$(".example-btn").click(function (e) {
+		const productInputValue = getProductInput();
+		let setText = '';
+		if (productInputValue == null || productInputValue == ' ' || productInputValue == '') {
+			setText = $(this).text();
+		} else {
+			setText = `${productInputValue}\n${$(this).text()}`;
+		}
+		$('.input-product').val(setText);
+	});
+}
+
 $(document).ready(() => {
 	generateReceiptOnClick();
+	addExamplesOnClick();
 });
