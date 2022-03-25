@@ -248,3 +248,36 @@ describe("Check if input has 'at' and throw error if it's not present", function
     expect(isAtAbsent).toBe(true);
   });
 });
+
+describe("Check if input has several numerals but considers only the cost", function() {
+  it("should work with even multiple numerals which can be same as cost -> 17.00 bottle of shampoo at 12.99", function() {
+    let productValue = '17.00 bottle of shampoo at 12.99';
+    performTaxComputationForInput(productValue);
+    let receiptSum = totalPrice - salesTax;
+    expect(receiptSum).toBe(12.99);
+    resetValues();
+  });
+});
+
+describe("Check if input has several special characters but considers only the cost", function() {
+  it("should work with even special characters which can be garbage values -> 1 bottle of shampoo at 4cx0e12.99", function() {
+    let productValue = '1 bottle of shampoo at 4cx0e12.99';
+    performTaxComputationForInput(productValue);
+    let receiptSum = totalPrice - salesTax;
+    expect(receiptSum).toBe(12.99);
+    resetValues();
+  });
+});
+
+describe("Check if input has spaces in beginning", function() {
+  it("should work with even spaces and return proper value -> ' 1 bottle of shampoo at 12.99'", function() {
+    let productValue = ' 1 bottle of shampoo at 12.99';
+    productValue = removeSpacesfromInput(productValue);
+    performTaxComputationForInput(productValue);
+    let receiptSum = totalPrice - salesTax;
+    expect(receiptSum).toBe(12.99);
+    resetValues();
+  });
+});
+
+

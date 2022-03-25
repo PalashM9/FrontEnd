@@ -6,6 +6,7 @@ function generateReceiptOnClick() {
 	$(".check-tax").click(() => {
 		let isGoodInput = checkErrors();
 		if (isGoodInput) {
+			hideError();
 			hideExamples();
 			resetReceipt();
 			multipleInput = checkIfMultipleInputs();
@@ -84,4 +85,5 @@ $(document).ready(() => {
 	generateReceiptOnClick();
 	addExamplesOnClick();
 	startOverAgainOnClick();
+	closeClick();
 });

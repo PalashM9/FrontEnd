@@ -1,5 +1,6 @@
 function checkErrors() {
-	const productInputValue = getProductInput();
+	let productInputValue = getProductInput();
+	productInputValue = removeSpacesfromInput(productInputValue);
 	let goodInput = true;
 
 	if (productInputValue == null || productInputValue == ' ' || productInputValue == '') {
@@ -36,6 +37,16 @@ function showError() {
 	$('.alert-danger').fadeIn();
 }
 
+function hideError() {
+	$('.alert-danger').fadeOut();
+}
+
+function closeClick(){
+	$(".close").click(function () {
+		hideError();
+	});
+}
+
 function checkIfQuantityisAbsent(productInputValue){
 	if(!(Number.isInteger(parseInt(productInputValue[0])))){
 		return true;
@@ -52,4 +63,10 @@ function checkIfDifferentialValueisAbsent(productInputValue){
 	else{
 		return false;
 	}
+}
+
+function removeSpacesfromInput(productInputValue){
+	productInputValue = productInputValue.replace(/^\s+/g, '');
+	
+	return productInputValue;
 }
