@@ -20,6 +20,8 @@ body {
 .container-sub {
 	display: flex;
 	justify-content: space-evenly;
+	min-height: 400px;
+	flex-direction: column;
 }
 
 .input-product {
@@ -49,6 +51,17 @@ body {
 	outline-width: 0;
 }
 
+.input-area {
+	display: flex;
+	justify-content: space-evenly;
+	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+	border: 1px solid #eee;
+	padding: 30px;
+	background: #f0ffff6b;
+	border-radius: 20px;
+}
+
 .check-tax {
 	width: auto;
 	margin-top: 33px;
@@ -61,4 +74,48 @@ body {
 	width: 50%;
 	margin: auto;
 	opacity: 0.8;
+}
+
+label {
+	display: block;
+}
+
+.product-item {
+	font-weight: 400;
+}
+
+.input-area-sub-button {
+	display: flex;
+}
+
+.output-area {
+	font-family: 'Nunito', sans-serif;
+	margin-top: 30px;
+	background: #f0ffff6b;
+	display: flex;
+	padding: 30px;
+	justify-content: center;
+	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+	border: 1px solid #eee;
+}
+
+.examples {
+	display: flex;
+}
+
+.example-btn {
+	margin: 10px;
+	white-space: inherit;
+	box-shadow: 0 3px #1b371c4d;
+}
+
+.example-btn:hover {
+	box-shadow: 0 1px #1B371C;
+	top: 2px;
+}
+
+.example-btn:active {
+	box-shadow: 0 0 #1B371C;
+	top: 6px;
 }
