@@ -72,7 +72,16 @@ function addExamplesOnClick() {
 	});
 }
 
+function startOverAgainOnClick() {
+	$(".start-over").click(e => {
+		$('.input-product').val('');
+		$('.examples').fadeIn(1000);
+		$('div.receipt').remove();
+	});
+}
+
 $(document).ready(() => {
 	generateReceiptOnClick();
 	addExamplesOnClick();
+	startOverAgainOnClick();
 });
