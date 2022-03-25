@@ -32,8 +32,9 @@ function addNewReceipt() {
 }
 
 function performTaxComputationForInput(productValue) {
-	const extractPrice = /\d+\.\d+/g;
-	productPrice = productValue.match(extractPrice);
+	const checkFloat = /\d+\.\d+/g;
+	let fetchFloatValue = productValue.match(checkFloat);
+	productPrice = fetchFloatValue[fetchFloatValue.length - 1];
 	category = checkCategory(productValue);
 
 	const extractQuantity = productValue[0];
@@ -102,7 +103,7 @@ function addItemsListForReceipt(calculatedTaxedPrice, extractItems) {
 }
 
 function addTotalForReceipt(totalSalesTax, totalPrice) {
-	salesTaxRow = ` <div class="receipt_list-row receipt__list-row--total"><dt class="receipt_item">Sales Tax :</dt><dd class="receipt_cost">${totalSalesTax}</dd></div>`;
+	salesTaxRow = ` <div class="receipt_list-row receipt_list-row--total"><dt class="receipt_item">Sales Tax :</dt><dd class="receipt_cost">${totalSalesTax}</dd></div>`;
 	totalRow = ` <div class="receipt_list-row"><dt class="receipt_item">Total :</dt><dd class="receipt_cost">${totalPrice}</dd></div>`;
 	$(salesTaxRow).appendTo($('.receipt_list'));
 	$(totalRow).appendTo($('.receipt_list'));

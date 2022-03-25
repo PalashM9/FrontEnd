@@ -197,3 +197,41 @@ describe("If Input is copied & pasted including special characters -> Check if t
   });
 });
 
+describe("Check if input has quantity and throw error if absent", function() {
+  it("should return false if quantity is present", function() {
+    let productValue = '1 bottle of shampoo at 12.99';
+    let isQuantityAbsent = checkIfQuantityisAbsent(productValue);
+    console.log(isQuantityAbsent);
+    expect(isQuantityAbsent).toBe(false);
+  });
+  it("should return true if quantity is absent", function() {
+    let productValue = 'bottle of shampoo at 12.99';
+    let isQuantityAbsent = checkIfQuantityisAbsent(productValue);
+    expect(isQuantityAbsent).toBe(true);
+  });
+});
+
+describe("Check if multiple input has quantity and throw error if absent for either one value", function() {
+  it("should return true if quantity is absent in any input", function() {
+    let isQuantityAbsent = false;
+    let productValue = ['1 imported bottle of perfume at 27.99','bottle of perfume at 18.99','1 packet of headache pills at 9.75','1 box of imported chocolates at 11.25'];
+    for (var i = 0; i < productValue.length; i++) {
+      if(checkIfQuantityisAbsent(productValue[i])){
+        isQuantityAbsent = true;
+        break;
+      }
+    }
+    expect(isQuantityAbsent).toBe(true);
+  });
+  it("should return false if quantity is not absent in any input", function() {
+    let isQuantityAbsent = false;
+    let productValue = ['1 imported bottle of perfume at 27.99','1 bottle of perfume at 18.99','1 packet of headache pills at 9.75','1 box of imported chocolates at 11.25'];
+    for (var i = 0; i < productValue.length; i++) {
+      if(checkIfQuantityisAbsent(productValue[i])){
+        isQuantityAbsent = true;
+        break;
+      }
+    }
+    expect(isQuantityAbsent).toBe(false);
+  });
+});
