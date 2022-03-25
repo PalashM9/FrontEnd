@@ -280,4 +280,26 @@ describe("Check if input has spaces in beginning", function() {
   });
 });
 
+describe("Check if input has price", function() {
+  it("should work with prices of float -> '1 bottle of shampoo at 12.99'", function() {
+    let productValue = '1 bottle of shampoo at 12.99';
+    let productPrice = checkNumberInInput(productValue);
+    expect(productPrice).toBe(12.99);
+    resetValues();
+  });
+  it("should work with prices of int -> '1 bottle of shampoo at 12'", function() {
+    let productValue = '1 bottle of shampoo at 12';
+    let productPrice = checkNumberInInput(productValue);
+    expect(productPrice).toBe(12);
+    resetValues();
+  });
+  it("should not work without prices -> '1 bottle of shampoo at'", function() {
+    let productValue = '1 bottle of shampoo at 12';
+    let productPrice = checkNumberInInput(productValue);
+    expect(productPrice).toBe(null);
+    resetValues();
+  });
+});
+
+
 

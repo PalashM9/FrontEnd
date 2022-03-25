@@ -16,11 +16,12 @@
    </header>
    <body>
       <button class="start-over">Start Over Again</button>
+      <button type="button" class="sales-info" data-toggle="modal" data-target="#salesTaxDetails">Sales Information</button>
       <div class="alert alert-danger fade">
          <div class="warning-message">
             <a href="#" class="close" aria-label="close">&times;</a>
             <strong>Irrelevant Input!</strong> 
-            <p>Please enter input as per the regulations.</p>
+            <div class="error-text"><p>Please enter input-<p class="error-value">as per the regulations.</p></p></div>
          </div>
       </div>
       <div class="container">
@@ -42,13 +43,33 @@
                   <button type="button" class="btn example-btn">1 imported bottle of perfume at 47.50</button>
                   <button type="button" class="btn example-btn">1 bottle of perfume at 18.99</button>
                 </div>
-                <div class ="receipt-container"></div></div>
+                <div class="receipt-container"></div></div>
         </div>
       </div>
    </body>
    <footer>
       <p>&copy;SalesTax Corporation</p>
    </footer>
+   <div class="modal fade" id="salesTaxDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Sales Tax Calculator Description </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <strong>Categories</strong> -> Book, Food, Medicine, Imported </br>
+            <strong>Products</strong> -> Books, Book, chocolate, chips, pills, music, book, perfume, bottle, chocolates, perfumes, pill </br>
+            <strong>To Calculate</strong> -> Either use the input or select bottom examples
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
    <script src="src/js/index.js"></script>

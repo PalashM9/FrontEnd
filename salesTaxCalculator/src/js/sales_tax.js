@@ -32,9 +32,7 @@ function addNewReceipt() {
 }
 
 function performTaxComputationForInput(productValue) {
-	const checkFloat = /\d+\.\d+/g;
-	let fetchFloatValue = productValue.match(checkFloat);
-	productPrice = fetchFloatValue[fetchFloatValue.length - 1];
+	productPrice = checkNumberInInput(productValue);
 	category = checkCategory(productValue);
 
 	const extractQuantity = productValue[0];

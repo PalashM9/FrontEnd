@@ -7,6 +7,7 @@ function generateReceiptOnClick() {
 		let isGoodInput = checkErrors();
 		if (isGoodInput) {
 			hideError();
+			resetErrorMsg();
 			hideExamples();
 			resetReceipt();
 			multipleInput = checkIfMultipleInputs();

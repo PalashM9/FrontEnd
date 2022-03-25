@@ -164,4 +164,23 @@ footer p {
 	transform-origin: bottom right;
 	width: 150px;
 }
-  
+
+.error-text{
+	display: flex;
+}
+
+.sales-info{
+	border: none;
+	background: #8fc9c83b;
+	color: #1c0d0d;
+	display:inline-block;
+	font-size: 1.3rem;
+	height: 50px;
+	line-height: 50px;
+	position: fixed;
+	text-align: center;
+	text-decoration: none;
+	transform-origin: bottom right;
+	width: 150px;
+	left: 0;
+}
