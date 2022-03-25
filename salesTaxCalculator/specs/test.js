@@ -201,7 +201,7 @@ describe("Check if input has quantity and throw error if absent", function() {
   it("should return false if quantity is present", function() {
     let productValue = '1 bottle of shampoo at 12.99';
     let isQuantityAbsent = checkIfQuantityisAbsent(productValue);
-    console.log(isQuantityAbsent);
+    console.log(checkIfQuantityisAbsent(productValue));
     expect(isQuantityAbsent).toBe(false);
   });
   it("should return true if quantity is absent", function() {
@@ -233,5 +233,18 @@ describe("Check if multiple input has quantity and throw error if absent for eit
       }
     }
     expect(isQuantityAbsent).toBe(false);
+  });
+});
+
+describe("Check if input has 'at' and throw error if it's not present", function() {
+  it("should return false if 'at' is present", function() {
+    let productValue = '1 bottle of shampoo at 12.99';
+    let isAtAbsent = checkIfDifferentialValueisAbsent(productValue);
+    expect(isAtAbsent).toBe(false);
+  });
+  it("should return true if 'at' is absent", function() {
+    let productValue = '1 bottle of shampoo 12.99';
+    let isAtAbsent = checkIfDifferentialValueisAbsent(productValue);
+    expect(isAtAbsent).toBe(true);
   });
 });

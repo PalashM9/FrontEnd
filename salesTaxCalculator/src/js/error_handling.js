@@ -8,7 +8,7 @@ function checkErrors() {
 	if (!(products.some(v => productInputValue.includes(v)))) {
 		goodInput = false;
 	}
-	if (!productInputValue.includes('at') || checkIfQuantityisAbsent(productInputValue)) {
+	if (checkIfDifferentialValueisAbsent(productInputValue) || checkIfQuantityisAbsent(productInputValue)) {
 		goodInput = false;
 	}
 	if(checkIfMultipleInputs(productInputValue)){
@@ -39,5 +39,17 @@ function showError() {
 function checkIfQuantityisAbsent(productInputValue){
 	if(!(Number.isInteger(parseInt(productInputValue[0])))){
 		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function checkIfDifferentialValueisAbsent(productInputValue){
+	if(!productInputValue.includes('at')){
+		return true;
+	}
+	else{
+		return false;
 	}
 }
