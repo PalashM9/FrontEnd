@@ -1,6 +1,25 @@
+/* This is the parent css containing all styles for the application except the receipt */
+
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100&display=swap');
+:root {
+	--application-bg-color: #f3f4f3;
+	--white-primary: #FFFFFF;
+	--white-secondary: #ededed;
+	--grey-primary: #666;
+	--grey-one: #555555;
+	--grey-light: #f0ffff6b;
+	--green-dark: #1b371c4d;
+	--green-light: #1B371C;
+	--blue-light: #9ab09a;
+	--blue-mid: #5bc0de;
+	--blue-dark: #008b8b69;
+	--blue-mid: #8fc9c83b;
+	--black-font: #1c0d0d;
+	--black-dark-font: #1f1f1f;
+}
+
 body {
-	background: #f3f4f3;
+	background: var(--application-bg-color);
 	margin: 0;
 	font-family: 'Sora', sans-serif;
 }
@@ -32,13 +51,13 @@ body {
 	width: 500px;
 	height: 100px;
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-	border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+	border-color: -moz-use-text-color var(--border-color) var(--border-color) -moz-use-text-color;
 	border-image: none;
 	border-radius: 6px 6px 6px 6px;
 	border-style: none solid solid none;
 	border-width: medium 1px 1px medium;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-	color: #555555;
+	color: var(--grey-one);
 	font-weight: 600;
 	font-size: 1em;
 	line-height: 1.4em;
@@ -47,7 +66,7 @@ body {
 }
 
 .input-product:focus {
-	background: none repeat scroll 0 0 #FFFFFF;
+	background: none repeat scroll 0 0 var(--white-primary);
 	outline-width: 0;
 }
 
@@ -56,9 +75,9 @@ body {
 	justify-content: space-evenly;
 	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
-	border: 1px solid #eee;
+	border: 1px solid var(--white-primary);
 	padding: 30px;
-	background: #f0ffff6b;
+	background: var(--grey-light);
 	border-radius: 20px;
 }
 
@@ -91,13 +110,13 @@ label {
 .output-area {
 	font-family: 'Nunito', sans-serif;
 	margin-top: 30px;
-	background: #f0ffff6b;
+	background: var(--grey-light);
 	display: flex;
 	padding: 30px;
 	justify-content: center;
 	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
-	border: 1px solid #eee;
+	border: 1px solid var(--white-primary);
 }
 
 .examples {
@@ -107,16 +126,16 @@ label {
 .example-btn {
 	margin: 10px;
 	white-space: inherit;
-	box-shadow: 0 3px #1b371c4d;
+	box-shadow: 0 3px var(--green-dark);
 }
 
 .example-btn:hover {
-	box-shadow: 0 1px #1B371C;
+	box-shadow: 0 1px var(--green-light);
 	top: 2px;
 }
 
 .example-btn:active {
-	box-shadow: 0 0 #1B371C;
+	box-shadow: 0 0 var(--green-light);
 	top: 6px;
 }
 
@@ -125,7 +144,7 @@ label {
 	position: sticky;
 	top: 0;  
 	height: 50px;
-	background: #008b8b69;
+	background: var(--blue-dark);
 	padding: 10px;
 	display: flex;
 	justify-content: center;
@@ -133,17 +152,17 @@ label {
 }
   
 .title {
-	color: #fff;
+	color: var(--white-primary);
 	font-weight: bold;
 }
 
 footer {
-	background-color: #9ab09a;
+	background-color: var(--blue-light);
 	  padding: 8px;
   }
   
 footer p {
-   color: #fff;
+   color: var(--white-primary);
    font-family: Roboto;
    font-size: 18px;
    text-align: center;
@@ -151,8 +170,8 @@ footer p {
 
 .start-over {
 	border: none;
-	background: #8fc9c83b;
-	color: #1c0d0d;
+	background: var(--blue-mid);
+	color: var(--black-font);
 	display:inline-block;
 	font-size: 1.3rem;
 	height: 50px;
@@ -171,8 +190,8 @@ footer p {
 
 .sales-info{
 	border: none;
-	background: #8fc9c83b;
-	color: #1c0d0d;
+	background: var(--blue-mid);
+	color: var(--black-font);
 	display:inline-block;
 	font-size: 1.3rem;
 	height: 50px;

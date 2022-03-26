@@ -1,7 +1,8 @@
+/* This is the css containing all styles for the receipt particularly to enable easy modification */
 
 .receipt {
 	display: none;
-	background: #ededed;
+	background: var(--white-secondary);
 	width: 36rem;
 	position: relative;
 	padding: 1rem;
@@ -9,7 +10,7 @@
 }
 
 .receipt:after {
-	background-image: linear-gradient(135deg, #ededed 0.5rem, transparent 0), linear-gradient(-135deg, #ededed 0.5rem, transparent 0);
+	background-image: linear-gradient(135deg, var(--white-secondary) 0.5rem, transparent 0), linear-gradient(-135deg, var(--white-secondary) 0.5rem, transparent 0);
 	background-position: left-bottom;
 	background-repeat: repeat-x;
 	background-size: 1rem;
@@ -27,7 +28,7 @@
 }
 
 .receipt__title {
-	color: #5bc0de;
+	color: var(--blue-mid);
 	font-size: 1.6rem;
 	font-weight: 700;
 	margin: 1rem 0 0.5rem;
@@ -35,7 +36,7 @@
 
 .receipt_date {
 	font-size: 0.8rem;
-	color: #666;
+	color: var(--grey-primary);
 	margin: 0.5rem 0 1rem;
 }
 
@@ -65,7 +66,7 @@
 .receipt_item {
 	z-index: 2;
 	padding: 0 0.15rem 0 0;
-	color: #1f1f1f;
+	color: var(--black-dark-font);
 }
 
 .receipt_cost {
@@ -73,11 +74,11 @@
 	margin: 0;
 	padding: 0 0 0 0.15rem;
 	z-index: 2;
-	color: #1f1f1f;
+	color: var(--black-dark-font);
 }
 
 .receipt_list-row--total {
-	border-top: 1px solid #5bc0de;
+	border-top: 1px solid var(--blue-mid);
 	padding: 1.5rem 0 0;
 	margin: 1.5rem 0 0;
 	font-weight: 700;
