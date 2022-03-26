@@ -35,6 +35,7 @@ function addNewReceipt() {
 }
 
 // This function calculates the tax computation with the input value provided
+// @param productValue - string - the input of product
 function performTaxComputationForInput(productValue) {
     productPrice = checkNumberInInput(productValue);
     category = checkCategory(productValue);
@@ -48,6 +49,8 @@ function performTaxComputationForInput(productValue) {
 }
 
 // This function gets the taxed details with the calculated price and sets the value of total and sales tax in the receipt
+// @param calculatedTaxedPrice - float - the input product price
+// @param extractItems - string - the label of the product
 function getTaxedDetails(calculatedTaxedPrice, extractItems) {
     totalPrice = parseFloat(totalPrice) + parseFloat(calculatedTaxedPrice);
     addItemsListForReceipt(calculatedTaxedPrice, extractItems);
@@ -56,12 +59,14 @@ function getTaxedDetails(calculatedTaxedPrice, extractItems) {
 // This function is used for setting the value of the decimal places, however it is not exactly matchable with the given outputs
 // as trying with floor, and changing fixed values give unsimilar values in the different standard outputs, so keeping it as the 
 // genuine and standard way of rounding to nearest 0.05 values
+// @param initialValue - float - the input product price
 function roundOffFloatValues(initialValue) {
     initialValue = (Math.ceil(initialValue * 20) / 20).toFixed(2);
     return initialValue;
 }
 
 // This function checks the category of the product
+// @param productValue - string - the input of product
 function checkCategory(productValue) {
     let category = '';
     if (productValue.includes('book') || productValue.includes('novel') || productValue.includes('magazine')) {
@@ -83,6 +88,8 @@ function checkCategory(productValue) {
 }
 
 // This function calculates sales tax as per the category and price provided in the input
+// @param productPrice - float - the product price
+// @param category - string - the category of the product
 function calculateSalesTax(productPrice, category) {
     let taxedPrice = 0.0;
     let computedSalesTax = 0.0;
@@ -106,12 +113,16 @@ function calculateSalesTax(productPrice, category) {
 }
 
 // This function sets items in the receipt
+// @param calculatedTaxedPrice - float - the total taxed price added to the original price
+// @param extractItems - string - the product name and quantity
 function addItemsListForReceipt(calculatedTaxedPrice, extractItems) {
     receiptRow = `<div class="receipt_list-row"><dt class="receipt_item product-item">${extractItems} <dd class="receipt_cost">${calculatedTaxedPrice}</dd></div>`;
     $(receiptRow).appendTo($('.receipt_list'));
 }
 
 // This function sets total value in the receipt
+// @param totalSalesTax - float - the total salestax calculated to be set,
+// @param totalPrice - float - the total Price calculated to be set
 function addTotalForReceipt(totalSalesTax, totalPrice) {
     salesTaxRow = ` <div class="receipt_list-row receipt_list-row--total"><dt class="receipt_item">Sales Tax :</dt><dd class="receipt_cost">${totalSalesTax}</dd></div>`;
     totalRow = ` <div class="receipt_list-row"><dt class="receipt_item">Total :</dt><dd class="receipt_cost">${totalPrice}</dd></div>`;

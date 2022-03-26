@@ -59,6 +59,7 @@ function closeClick() {
 }
 
 // This function checks if the quantity is present in the input
+// @param productInputValue - string - the input of product
 function checkIfQuantityisAbsent(productInputValue) {
     if (!(Number.isInteger(parseInt(productInputValue[0])))) {
         return true;
@@ -68,6 +69,7 @@ function checkIfQuantityisAbsent(productInputValue) {
 }
 
 // This function checks if the core value 'at' is present in the input
+// @param productInputValue - string - the input of product
 function checkIfDifferentialValueisAbsent(productInputValue) {
     if (!productInputValue.includes('at')) {
         return true;
@@ -77,6 +79,7 @@ function checkIfDifferentialValueisAbsent(productInputValue) {
 }
 
 // This function removes spaces from input if present to avoid error for correct input with space
+// @param productInputValue - string - the input of product
 function removeSpacesfromInput(productInputValue) {
     productInputValue = productInputValue.replace(/^\s+/g, '');
 
@@ -84,6 +87,7 @@ function removeSpacesfromInput(productInputValue) {
 }
 
 // This function checks if the price is present
+// @param productValue - string - the input of product
 function checkNumberInInput(productValue) {
     const checkFloat = /\d+\.\d+/g;
     const checkInt = /(\d+)/g;
@@ -101,6 +105,7 @@ function checkNumberInInput(productValue) {
 }
 
 // This function sets error messages for different kind of error inputs
+// @param errorMsg - string - the error message to be set
 function setErrorMsg(errorMsg) {
     $('.error-value').html(errorMsg);
 }
